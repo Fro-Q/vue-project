@@ -1,6 +1,8 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import upload from '../views/uploadView.vue'
-import spi from '../views/spiView.vue'
+import UploadFileView from '../views/UploadFileView.vue'
+import SpiParamsView from '../views/SpiParamsView.vue'
+import HomeView from '../views/HomeView.vue'
+import MapView from '../views/MapView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -8,20 +10,29 @@ const router = createRouter({
     {
       path: '/',
       name: 'home',
-      // component: 
+      components: {
+        optionPanel: HomeView,
+        mapPanel: MapView
+      }
     },
     {
       path: '/upload',
       name: 'upload',
-      component:upload    
+      components: {
+        optionPanel: UploadFileView,
+        mapPanel: MapView
+      }
     },
     {
       path: '/spi',
       name: 'spi',
-      component:spi
+      components: {
+        optionPanel: SpiParamsView,
+        mapPanel: MapView
+      }
     }
   ]
-  }
-  )
+}
+)
 
 export default router

@@ -1,9 +1,6 @@
-<script setup>
-import TheWelcome from '../components/TheWelcome.vue'
-</script>
-
 <template>
-  <main>
-    <TheWelcome />
-  </main>
+  <div>
+    <h2>Instruction</h2>
+    <RouterLink to="/upload">Upload</RouterLink>
+  </div>
 </template>
