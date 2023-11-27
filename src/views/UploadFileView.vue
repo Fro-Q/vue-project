@@ -4,31 +4,21 @@ import axios from 'axios'
 export default {
   methods: {
     submit() {
-      this.loading = true
+      this.progressStatus = 'running'
       axios
         .post(`http://127.0.0.1:8000/api/choose_data/${this.$data.dataType}/`, {})
         .then((response) => {
+          if (response.data.success == false) {
+            this.progressStatus = 'error'
+            return
+          }
           console.log(response.data)
+          this.progressStatus = 'completed'
         })
         .catch((error) => {
-          console.error(error)
+          console.log(error)
+          this.progressStatus = 'error'
         })
-        .finally(() => {
-          this.loading = false
-          /* 在 2s 后清除定时器 */
-          setTimeout(() => {
-            clearInterval(this.Interval)
-          }, 2000)
-        })
-      this.Interval = setInterval(() => {
-        axios.get(`http://127.0.0.1:8000/api/progress/`).then((response) => {
-          if (response.data.progress_status != 'completed') {
-            this.progressStatus = '运行中……'
-          } else {
-            this.progressStatus = '运行完成'
-          }
-        })
-      }, 100)
     }
   },
   data() {
@@ -36,50 +26,44 @@ export default {
       dataType: '',
       loading: false,
       Interval: null,
-      progressStatus: ''
+      progressStatus: 'not started'
     }
   }
 }
 </script>
 
 <template>
-  <div class="option">
-    <label for="dataType">选择数据</label>
-    <select v-model="dataType" id="dataType">
+  <div class="optionLine">
+    <label for="dataType">选择数据：</label>
+    <select v-model="dataType" id="dataType" class="selectEntry">
       <option disabled value="">请选择数据</option>
       <option>MERRA2</option>
       <option>TRMM</option>
     </select>
   </div>
 
-  <button @click="submit" :disabled="loading">确认</button>
+  <button class="actionButton" @click="submit" :disabled="progressStatus == 'running'" id="comfirm">
+    确认
+  </button>
   <div class="progress_list">
-    <div :class="progressStatus == '运行完成' ? 'completed-status' : 'current-status'">
-      {{ progressStatus }}
+    <div
+      :class="
+        progressStatus == 'completed'
+          ? 'completed-status'
+          : progressStatus == 'error'
+            ? 'error-status'
+            : 'current-status'
+      "
+      v-show="progressStatus != 'not started'"
+    >
+      <div v-if="progressStatus == 'running'">运行中……</div>
+      <div v-else-if="progressStatus == 'completed'">运行完成</div>
+      <div v-else-if="progressStatus == 'error'">运行出错</div>
     </div>
-    <div class="nextStep" v-show="progressStatus == '运行完成'">
-      <RouterLink to="/spi">下一步</RouterLink>
+    <div class="nextStep" v-show="progressStatus == 'completed'">
+      <RouterLink to="/spi" class="actionButton">下一步</RouterLink>
     </div>
   </div>
 </template>
 
-<style scoped>
-.progress_list {
-  position: absolute;
-  left: 10px;
-  right: 10px;
-  height: 100px;
-  bottom: 20px;
-  overflow-y: scroll;
-  border-top: 2px solid hsla(160, 100%, 37%, 1);
-  padding: 10px;
-}
-
-.current-status {
-  color: grey;
-}
-
-.completed-status {
-  color: green;
-}
-</style>
+<style scoped style="scss"></style>

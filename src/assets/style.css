@@ -1,0 +1,181 @@
+a {
+  text-decoration: none;
+  color: rgb(20, 68, 151);
+  transition: 0.4s;
+}
+a:hover {
+  text-decoration: underline;
+  transition: 0.4s;
+}
+
+body {
+  font-family: monospace;
+  font-weight: 300;
+  font-size: 16px;
+}
+
+.progress_list {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 100px;
+  bottom: 0;
+  overflow-y: scroll;
+  padding: 10px;
+  border-top: 2px solid rgb(20, 68, 151);
+}
+.progress_list .current-status {
+  color: grey;
+}
+.progress_list .completed-status {
+  color: green;
+}
+.progress_list .error-status {
+  color: red;
+}
+
+.optionLine {
+  width: 100%;
+  font-size: 16px;
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 15px;
+  align-items: center;
+}
+
+.actionButton {
+  padding: 5px;
+  border: 2px solid rgb(20, 68, 151);
+  font-size: 20px;
+  width: -moz-max-content;
+  width: max-content;
+  position: absolute;
+  box-sizing: border-box;
+  right: 10px;
+  bottom: 10px;
+  font-weight: 300;
+}
+.actionButton:hover {
+  background-color: rgb(20, 68, 151);
+  color: white;
+  transition: all 0.3s;
+}
+.actionButton:disabled {
+  background-color: grey;
+  color: white;
+  border: 2px solid grey;
+}
+
+#comfirm {
+  left: 10px;
+  right: 10px;
+  width: auto;
+  bottom: 140px;
+}
+
+.selectEntry {
+  margin-left: 10px;
+  width: auto;
+  flex: 1;
+  border-radius: 0;
+  border: 2px solid grey;
+  font-size: 14px;
+}
+.selectEntry:hover {
+  cursor: pointer;
+  border: 2px solid rgb(20, 68, 151);
+}
+.selectEntry:focus-visible {
+  outline: none;
+  border: 2px solid rgb(20, 68, 151);
+}
+
+.topBar {
+  position: absolute;
+  display: flex;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: auto;
+  height: 50px;
+  box-sizing: border-box;
+  background-color: rgb(20, 68, 151);
+}
+
+.topBarLeft, .topBarRight {
+  position: absolute;
+  display: flex;
+  top: 0;
+  left: 0;
+  width: auto;
+  height: 50px;
+  padding: 0 10px;
+  box-sizing: border-box;
+}
+
+.topBarRight {
+  left: auto;
+  right: 0;
+}
+
+.topBarLinkDiv {
+  margin: auto 10px;
+  font-size: 20px;
+  box-sizing: border-box;
+}
+.topBarLinkDiv * {
+  color: white;
+}
+
+.optionPanel {
+  position: absolute;
+  top: 50px;
+  left: 0;
+  bottom: 0;
+  width: 250px;
+  height: auto;
+  background-color: #eee;
+  padding: 15px;
+  margin: 8px;
+  box-sizing: border-box;
+  border: 2px solid rgb(20, 68, 151);
+}
+
+label {
+  min-width: -moz-max-content;
+  min-width: max-content;
+}
+
+.indentation-1 {
+  padding-left: 1rem;
+}
+
+input {
+  width: auto;
+  flex: 1;
+  border-radius: 0;
+  border: 2px solid grey;
+  height: 24px;
+  flex: 0 1 auto;
+  text-align: center;
+  font-size: 14px;
+}
+input:focus-visible {
+  border: 2px solid rgb(20, 68, 151);
+  outline: none;
+}
+input:hover {
+  border: 2px solid rgb(20, 68, 151);
+}
+input[type=date] {
+  font-size: 14px;
+}
+input[type=radio] {
+  height: 18px;
+}
+input[type=radio]:checked {
+  border: 12px solid rgb(20, 68, 151);
+}
+input[type=text]:hover {
+  cursor: text;
+}/*# sourceMappingURL=style.css.map */
