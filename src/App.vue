@@ -84,7 +84,7 @@ input {
   width: 250px;
   height: auto;
   background-color: #eee;
-  padding: 1rem;
+  padding: 15px;
   margin: 8px;
   box-sizing: border-box;
   border: 2px solid hsla(160, 100%, 37%, 1);
