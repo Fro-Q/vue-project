@@ -1,8 +1,8 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import UploadFileView from '../views/UploadFileView.vue'
 import SpiParamsView from '../views/SpiParamsView.vue'
 import HomeView from '../views/HomeView.vue'
 import MapView from '../views/MapView.vue'
+import ImageFilterView from '../views/ImageFilterView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -16,18 +16,18 @@ const router = createRouter({
       }
     },
     {
-      path: '/upload',
-      name: 'upload',
+      path: '/spi_params/:dataType',
+      name: 'spi_params',
       components: {
-        optionPanel: UploadFileView,
+        optionPanel: SpiParamsView,
         mapPanel: MapView
       }
     },
     {
-      path: '/spi',
-      name: 'spi',
+      path: '/filter',
+      name: 'filter',
       components: {
-        optionPanel: SpiParamsView,
+        optionPanel: ImageFilterView,
         mapPanel: MapView
       }
     }
