@@ -1,21 +1,21 @@
 <template>
-  <div class="topBar">
-    <div class="topBarLeft">
-      <div class="topBarLinkDiv">
+  <div class="topbar">
+    <div class="topbar-left">
+      <div class="topbar-link-div">
         <RouterLink to="/">HOME</RouterLink>
       </div>
     </div>
-    <div class="topBarRight">
-      <div class="topBarLinkDiv">
-        <RouterLink to="/">HOME</RouterLink>
+    <div class="topbar-right">
+      <div class="topbar-link-div">
+        <RouterLink to="/docs/about">ABOUT</RouterLink>
       </div>
     </div>
   </div>
-  <div class="mainArea">
-    <div class="optionPanel panel">
-      <RouterView name="optionPanel" />
+  <div class="app-container">
+    <div class="main-panel panel">
+      <RouterView name="mainPanel" />
     </div>
-    <div class="mapPanel panel">
+    <div class="map-panel panel zoom-container">
       <RouterView name="mapPanel" />
     </div>
   </div>

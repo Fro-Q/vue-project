@@ -28,7 +28,7 @@ export default {
 </script>
 
 <template>
-  <div class="optionLine">
+  <div class="option-line">
     <label for="filterType">滤波类型：</label>
     <select v-model="params.filterType" id="filterType">
       <option disabled value="">请选择</option>
@@ -37,7 +37,7 @@ export default {
       </option>
     </select>
   </div>
-  <div class="optionLine">
+  <div class="option-line">
     <label for="kernelSize">核大小：</label>
     <input type="text" v-model="kernelSize" id="kernelSize" />
   </div>

@@ -1,4 +1,10 @@
 import { createRouter, createWebHistory } from 'vue-router'
+import AboutView from '../views/AboutView.vue'
+import BackgroundView from '../views/BackgroundView.vue'
+import DocView from '../views/DocView.vue'
+import DocTocView from '../views/DocTocView.vue'
+import DocContentView from '../views/DocContentView.vue'
+
 import SpiParamsView from '../views/SpiParamsView.vue'
 import HomeView from '../views/HomeView.vue'
 import MapView from '../views/MapView.vue'
@@ -11,15 +17,33 @@ const router = createRouter({
       path: '/',
       name: 'home',
       components: {
-        optionPanel: HomeView,
+        mainPanel: HomeView,
         mapPanel: MapView
       }
+    },
+    {
+      path: '/docs',
+      name: 'docs',
+      components: {
+        mainPanel: DocView,
+        mapPanel: BackgroundView
+      },
+      children: [
+        {
+          path: 'about',
+          name: 'about',
+          components: {
+            sidePanel: DocTocView,
+            contentPanel: DocContentView
+          }
+        }
+      ]
     },
     {
       path: '/spi_params/:dataType',
       name: 'spi_params',
       components: {
-        optionPanel: SpiParamsView,
+        mainPanel: SpiParamsView,
         mapPanel: MapView
       }
     },
@@ -27,7 +51,7 @@ const router = createRouter({
       path: '/filter',
       name: 'filter',
       components: {
-        optionPanel: ImageFilterView,
+        mainPanel: ImageFilterView,
         mapPanel: MapView
       }
     }

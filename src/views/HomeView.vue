@@ -3,8 +3,8 @@ import axios from "axios"
 
 export default {
   mounted() {
-    axios.get(`http://127.0.0.1:8000/api/setup/get_meta/`).then((response) => {
-      this.dataList = response.data.data_list
+    axios.get(`http://127.0.0.1:8000/api/setup/get_info/`).then((response) => {
+      this.dataList = response.data.data_info_list
     })
   },
   data() {
@@ -16,9 +16,9 @@ export default {
 </script>
 
 <template>
-  <div>
+  <div class="option-panel">
     <h2>Instruction</h2>
-    <div class="dataRouterList">
+    <div class="data-router-list">
       <RouterLink
         v-for="item in dataList"
         :key="item.data_type"
