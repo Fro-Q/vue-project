@@ -180,6 +180,11 @@ a {
     z-index: 1;
     transition: all 0.3s;
 
+    &.img-filter-panel {
+        height: 300px;
+        right: 10px;
+    }
+
     &:hover {
         box-shadow: 4px 4px 12px 0 rgba(0, 0, 0, 0.4);
         opacity: 0.9;

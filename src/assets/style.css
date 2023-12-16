@@ -151,6 +151,10 @@ a:hover {
   z-index: 1;
   transition: all 0.3s;
 }
+.option-panel.img-filter-panel {
+  height: 300px;
+  right: 10px;
+}
 .option-panel:hover {
   box-shadow: 4px 4px 12px 0 rgba(0, 0, 0, 0.4);
   opacity: 0.9;
